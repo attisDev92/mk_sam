@@ -19,6 +19,7 @@ import ServiceCardSkeleton from '@/components/service-card-skeleton'
 import KnowledgeCardSkeleton from '@/components/knowledge-card-skeleton'
 import TranslatedText from '@/components/translated-text'
 import { useRouter } from 'next/navigation'
+import { AnimatedSection, ParallaxSection } from '@/components/animated-section'
 
 export default function Home() {
   const { t, loading: languageLoading } = useLanguage()
@@ -45,7 +46,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
-        <div className="md:w-1/2 mb-10 md:mb-0">
+        <AnimatedSection className="md:w-1/2 mb-10 md:mb-0" delay={0.2}>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             <TranslatedText textKey="hero.title" as="span" />
           </h1>
@@ -65,8 +66,8 @@ export default function Home() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
-        </div>
-        <div className="md:w-1/2 relative">
+        </AnimatedSection>
+        <ParallaxSection className="md:w-1/2 relative">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
           <div className="absolute inset-0 w-40 h-40 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 m-auto"></div>
@@ -83,11 +84,11 @@ export default function Home() {
               />
             ) : null}
           </div>
-        </div>
+        </ParallaxSection>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-16">
+      <AnimatedSection className="bg-white py-16" delay={0.4}>
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -104,53 +105,65 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Services Section */}
       <section id="services" className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16" delay={0.2}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <TranslatedText textKey="services.title" as="span" />
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             <TranslatedText textKey="services.subtitle" as="span" />
           </p>
-        </div>
+        </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => <ServiceCardSkeleton key={i} />)
           ) : (
             <>
-              <ServiceCard
-                icon={<Search className="h-8 w-8 text-purple-600" />}
-                titleKey="services.seo.title"
-                descriptionKey="services.seo.desc"
-              />
-              <ServiceCard
-                icon={<TrendingUp className="h-8 w-8 text-purple-600" />}
-                titleKey="services.sem.title"
-                descriptionKey="services.sem.desc"
-              />
-              <ServiceCard
-                icon={<Zap className="h-8 w-8 text-purple-600" />}
-                titleKey="services.ai.title"
-                descriptionKey="services.ai.desc"
-              />
-              <ServiceCard
-                icon={<MousePointer className="h-8 w-8 text-purple-600" />}
-                titleKey="services.cro.title"
-                descriptionKey="services.cro.desc"
-              />
-              <ServiceCard
-                icon={<Mail className="h-8 w-8 text-purple-600" />}
-                titleKey="services.email.title"
-                descriptionKey="services.email.desc"
-              />
-              <ServiceCard
-                icon={<TrendingUp className="h-8 w-8 text-purple-600" />}
-                titleKey="services.analytics.title"
-                descriptionKey="services.analytics.desc"
-              />
+              <AnimatedSection delay={0.3}>
+                <ServiceCard
+                  icon={<Search className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.seo.title"
+                  descriptionKey="services.seo.desc"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.4}>
+                <ServiceCard
+                  icon={<TrendingUp className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.sem.title"
+                  descriptionKey="services.sem.desc"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.5}>
+                <ServiceCard
+                  icon={<Zap className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.ai.title"
+                  descriptionKey="services.ai.desc"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.6}>
+                <ServiceCard
+                  icon={<MousePointer className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.cro.title"
+                  descriptionKey="services.cro.desc"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.7}>
+                <ServiceCard
+                  icon={<Mail className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.email.title"
+                  descriptionKey="services.email.desc"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.8}>
+                <ServiceCard
+                  icon={<TrendingUp className="h-8 w-8 text-purple-600" />}
+                  titleKey="services.analytics.title"
+                  descriptionKey="services.analytics.desc"
+                />
+              </AnimatedSection>
             </>
           )}
         </div>
@@ -159,7 +172,7 @@ export default function Home() {
       {/* Blog Section */}
       <section id="blog" className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-16">
+          <AnimatedSection className="flex justify-between items-center mb-16" delay={0.2}>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 <TranslatedText textKey="blog.title" as="span" />
@@ -172,63 +185,81 @@ export default function Home() {
               <TranslatedText textKey="blog.viewAll" as="span" />
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {isLoading
               ? Array.from({ length: 3 }).map((_, i) => (
-                  <div key={i} className="space-y-4">
-                    <Skeleton className="h-48 w-full rounded-lg" />
-                    <Skeleton className="h-6 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-2/3" />
-                  </div>
+                  <AnimatedSection key={i} delay={0.3 + i * 0.1}>
+                    <div className="space-y-4">
+                      <Skeleton className="h-48 w-full rounded-lg" />
+                      <Skeleton className="h-6 w-3/4" />
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-2/3" />
+                    </div>
+                  </AnimatedSection>
                 ))
-              : blogEntries.slice(0, 3).map((entry) => <BlogCard key={entry.sys.id} entry={entry as BlogEntry} />)}
+              : blogEntries.slice(0, 3).map((entry, i) => (
+                  <AnimatedSection key={entry.sys.id} delay={0.3 + i * 0.1}>
+                    <BlogCard entry={entry as BlogEntry} />
+                  </AnimatedSection>
+                ))}
           </div>
-          <div className="text-center mt-12">
+          <AnimatedSection className="text-center mt-12" delay={0.6}>
             <Button variant="outline" onClick={() => router.push('/blogs')}>
               <TranslatedText textKey="blog.viewAll" as="span" />
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Knowledge Section */}
       <section id="knowledge" className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16" delay={0.2}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('knowledge.title')}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('knowledge.subtitle')}</p>
-        </div>
+        </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {isLoading ? (
-            Array.from({ length: 4 }).map((_, i) => <KnowledgeCardSkeleton key={i} />)
+            Array.from({ length: 4 }).map((_, i) => (
+              <AnimatedSection key={i} delay={0.3 + i * 0.1}>
+                <KnowledgeCardSkeleton />
+              </AnimatedSection>
+            ))
           ) : (
             <>
-              <KnowledgeCard
-                title="SEO Starter Guide"
-                description="Everything you need to know to start optimizing your website for search engines."
-                downloadCount="2,500+"
-                type="PDF Guide"
-              />
-              <KnowledgeCard
-                title="Digital Marketing ROI Calculator"
-                description="Calculate the potential return on investment for your digital marketing campaigns."
-                downloadCount="1,800+"
-                type="Excel Template"
-              />
-              <KnowledgeCard
-                title="Content Calendar Template"
-                description="Plan your content strategy with this comprehensive calendar template."
-                downloadCount="3,200+"
-                type="Google Sheet"
-              />
-              <KnowledgeCard
-                title="Email Marketing Swipe File"
-                description="Copy-and-paste email templates that convert subscribers into customers."
-                downloadCount="2,100+"
-                type="PDF Guide"
-              />
+              <AnimatedSection delay={0.3}>
+                <KnowledgeCard
+                  title="SEO Starter Guide"
+                  description="Everything you need to know to start optimizing your website for search engines."
+                  downloadCount="2,500+"
+                  type="PDF Guide"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.4}>
+                <KnowledgeCard
+                  title="Digital Marketing ROI Calculator"
+                  description="Calculate the potential return on investment for your digital marketing campaigns."
+                  downloadCount="1,800+"
+                  type="Excel Template"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.5}>
+                <KnowledgeCard
+                  title="Content Calendar Template"
+                  description="Plan your content strategy with this comprehensive calendar template."
+                  downloadCount="3,200+"
+                  type="Google Sheet"
+                />
+              </AnimatedSection>
+              <AnimatedSection delay={0.6}>
+                <KnowledgeCard
+                  title="Email Marketing Swipe File"
+                  description="Copy-and-paste email templates that convert subscribers into customers."
+                  downloadCount="2,100+"
+                  type="PDF Guide"
+                />
+              </AnimatedSection>
             </>
           )}
         </div>
@@ -237,21 +268,27 @@ export default function Home() {
       {/* Testimonials */}
       <section className="bg-purple-50 py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <AnimatedSection className="text-center mb-16" delay={0.2}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('testimonials.title')}</h2>
-          </div>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {isLoading
-              ? Array.from({ length: 3 }).map((_, i) => <TestimonialCardSkeleton key={i} />)
-              : testimonialEntries.map((entry: Entry<EntrySkeletonType>) => (
-                  <TestimonialCard key={entry.sys.id} entry={entry} />
+              ? Array.from({ length: 3 }).map((_, i) => (
+                  <AnimatedSection key={i} delay={0.3 + i * 0.1}>
+                    <TestimonialCardSkeleton />
+                  </AnimatedSection>
+                ))
+              : testimonialEntries.map((entry: Entry<EntrySkeletonType>, i) => (
+                  <AnimatedSection key={entry.sys.id} delay={0.3 + i * 0.1}>
+                    <TestimonialCard entry={entry} />
+                  </AnimatedSection>
                 ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-20">
+      <AnimatedSection className="container mx-auto px-4 py-20" delay={0.2}>
         <div className="bg-purple-600 rounded-3xl p-8 md:p-16 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('cta.title')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">{t('cta.subtitle')}</p>
@@ -267,7 +304,7 @@ export default function Home() {
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   )
 }

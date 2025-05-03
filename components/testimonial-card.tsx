@@ -23,9 +23,6 @@ export default function TestimonialCard({ entry }: { entry: Entry<{ fields: Test
         </div>
         <p className="text-gray-700 mb-6 italic">"{quote}"</p>
         <div className="flex items-center">
-          <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
-            <Image src={imageUrl} alt={entry.fields.author} fill className="object-cover" />
-          </div>
           <div>
             <p className="font-semibold">{entry.fields.author}</p>
             <p className="text-sm text-gray-500">{entry.fields.company}</p>

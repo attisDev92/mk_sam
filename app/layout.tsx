@@ -4,13 +4,11 @@ import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import { ClientLayout } from './client-layout'
 import Footer from '@/components/footer'
-import Header from '@/components/header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Professional',
+  title: 'Sam | Digital Marketing Professional',
   description: 'Expert in SEO, SEM, digital marketing, and AI-powered marketing strategies',
-  generator: 'v0.dev',
 }
 
 export default function RootLayout({

@@ -69,11 +69,6 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
-              <li>
-                <Link href="/#knowledge" className="text-gray-400 hover:text-white transition-colors">
-                  Free resources
-                </Link>
-              </li>
             </ul>
           </div>
           <div>
@@ -85,9 +80,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8">
-          <p className="text-gray-400 text-center">
-            © {new Date().getFullYear()} QuinDev | AttisDev92. All rights reserved.
-          </p>
+          <p className="text-gray-400 text-center">© {new Date().getFullYear()} QuinDev. All rights reserved.</p>
         </div>
       </div>
     </footer>

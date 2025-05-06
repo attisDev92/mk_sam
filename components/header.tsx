@@ -24,9 +24,6 @@ export default function Header() {
           <Link href="/#blog" className="text-gray-600 hover:text-purple-600 transition-colors">
             {t('blog.title')}
           </Link>
-          <Link href="/#knowledge" className="text-gray-600 hover:text-purple-600 transition-colors">
-            {t('knowledge.title')}
-          </Link>
           <Link href="/#contact" className="text-gray-600 hover:text-purple-600 transition-colors">
             {t('contact.title')}
           </Link>

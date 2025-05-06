@@ -23,7 +23,7 @@ import AnimatedBackground from '@/components/AnimatedBackground'
 
 export default function Home() {
   const { t, loading: languageLoading } = useLanguage()
-  const { entries: imageEntries, loading: imagesLoading } = useGetAllEntries('image')
+  const { entries: imageEntries, loading: imagesLoading } = useGetAllEntries('Image')
   const { entries: blogEntries, loading: blogsLoading } = useGetAllEntries('blogs')
   const { entries: testimonialEntries, loading: testimonialsLoading } = useGetAllEntries('testimonials')
   const [isLoading, setIsLoading] = useState(true)

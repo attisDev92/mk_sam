@@ -41,8 +41,6 @@ const defaultTranslations = {
     // 'blog.subtitle': 'Insights and updates from our team',
     'blog.readMore': 'Read More',
     'blog.viewAll': 'View All Articles',
-    'knowledge.title': 'Free Resources',
-    'knowledge.subtitle': 'Download our free guides and templates',
     'testimonials.title': 'Client Testimonials',
     'contact.title': 'Contact',
     'contact.subtitle': 'Contact us for more information',
@@ -116,7 +114,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     en: {},
     es: {},
   })
-  const { entries: translationEntries, loading: translationsLoading } = useGetAllEntries('translation')
+  const { entries: translationEntries, loading: translationsLoading } = useGetAllEntries('Translation')
 
   useEffect(() => {
     if (!translationsLoading && translationEntries) {
